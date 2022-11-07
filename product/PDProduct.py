@@ -75,7 +75,7 @@ class PDProduct():
                     result = PDMicroService(userID).getShipmentStatus(shipmentID=shipmentID[0])
 
             elif orderType == EBOOK:
-                result = {"shipment_status": DELIVERED}
+                result = DELIVERED
             return result
         except:
             raise CustomException(PD_ERROR['PD_SHIPMENT_STATUS_FAILED'])

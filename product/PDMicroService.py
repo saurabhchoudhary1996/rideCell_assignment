@@ -15,7 +15,7 @@ class PDMicroService():
     def getShipmentStatus(self, shipmentID):
         resp = requests.post(join(SHIPMENT_URL, "get-shipment-status"), data = {'shipment_id':shipmentID}, headers={'user_id':self.__userID})
         if resp.status_code == 200:
-            return resp.json()
+            return resp.text
         else:
             return PD_ERROR['PD_SHIPMENT_STATUS_FAILED']
 

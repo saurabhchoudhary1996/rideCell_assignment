@@ -179,7 +179,7 @@ class Database:
 					INSERT INTO userdetail(name, email_address, password, created_on) VALUES(%s, %s, %s, %s) RETURNING user_id ;
 				  '''
             self._cur.execute(sql,[userDetail['name'], userDetail['emailAddress'], userDetail['password'], dateTime])
-            info = self._cur.fetchone()
+            info = self._cur.fetchone()[0]
             PDQueryCompleted(sys._getframe().f_code.co_name)
             return info
         except Exception as e:

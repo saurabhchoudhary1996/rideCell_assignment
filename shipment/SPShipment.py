@@ -2,7 +2,8 @@ import SPdbconnection
 from SPResMsg import *
 import json
 from SPLogging import addlog
-
+from SPSetting import *
+import uuid
 
 class SPShipment():
     
@@ -15,9 +16,13 @@ class SPShipment():
         productList = json.loads(productList)
         db = SPdbconnection.Database()
         try:
-            shipmentIDList = db.add_to_shipment(productList, orderID, self.__userID)
+            shipmentList = []
+            for productID in productList:
+                shipmentID = str(uuid.uuid4())
+                db.add_to_shipment(productID, shipmentID, orderID, self.__userID)
+                shipmentList.append({'product_id':productID,'shipment_id':shipmentID})
             db.db_commit()
-            return shipmentIDList
+            return json.dumps(shipmentList)
         except:
             raise CustomException(SP_ERROR['SP_CREATE_SHIPMENT_FAILED'])
         finally:
@@ -25,12 +30,6 @@ class SPShipment():
 
     @addlog
     def getShipmentStatus(self):
-        db = SPdbconnection.Database(realDictCursor=True)
-        try:
-            shipmentStatus = db.get_shipment_status(self.__shipmentID)   
-            return dict(shipmentStatus)
-        except:
-            raise CustomException(SP_ERROR['SP_SHIPMENT_STATUS_FAILED'])
-        finally:
-            db.db_close()
+        #shipment API code will be here
+        return DISPATCHED
 

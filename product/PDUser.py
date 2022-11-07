@@ -9,13 +9,12 @@ class PDUser:
 
     @addlog
     def register(self, userDetail):
-        db = PDdbconnection.Database(realDictCursor=True)
+        db = PDdbconnection.Database()
         try:
             # check user is already exist
             if not db.check_user_exist(userDetail['emailAddress']):
                 # adding user
-                userID = db.add_user(userDetail)
-                result = dict(userID)
+                result = db.add_user(userDetail)
                 db.db_commit()
             else:
                 result = PD_MISCELLANEOUS['PD_USER_EXIST']
@@ -32,7 +31,7 @@ class PDUser:
             # check user is already exist
             userID = db.get_userID(userDetail['emailAddress'], userDetail['password'])
             if userID:
-                return {'user_id':userID[0]}
+                return userID[0]
             else:
                 return PD_MISCELLANEOUS['PD_INVALID_USER']
         except:

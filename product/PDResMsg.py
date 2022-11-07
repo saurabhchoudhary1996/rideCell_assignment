@@ -1,26 +1,26 @@
 PD_ERROR = {
-    'PD_INIT_FAILED': {"message":"Unable initialize project."},
-    'PD_PRODUCT_LIST_FAILED': {"message":"Unable fetch products."},
-    'PD_SIGNUP_FAILED': {"message":"Unable sign-up."},
-    'PD_ADDED_TO_CART_FAILED': {"message":"Unable add product(s) to cart."},
-    'PD_FETCH_CART_FAILED': {"message":"Unable fetch cart."},
-    'PD_REMOVED_FROM_CART_FAILED': {"message":"Unable remove product(s) from cart."},
-    'PD_SHIPMENT_STATUS_FAILED': {"message":"Unable fetch shipment status."},
-    'PD_SHIPMENT_ORDER_FAILED': {"message":"Unable to confirm order."},
-    'PD_CREATE_SHIPMENT_FAILED': {"message":"Unable create shipment."}
+    'PD_INIT_FAILED': "Unable initialize project.",
+    'PD_PRODUCT_LIST_FAILED': "Unable fetch products.",
+    'PD_SIGNUP_FAILED': "Unable sign-up.",
+    'PD_ADDED_TO_CART_FAILED': "Unable add product(s) to cart.",
+    'PD_FETCH_CART_FAILED': "Unable fetch cart.",
+    'PD_REMOVED_FROM_CART_FAILED': "Unable remove product(s) from cart.",
+    'PD_SHIPMENT_STATUS_FAILED': "Unable fetch shipment status.",
+    'PD_SHIPMENT_ORDER_FAILED': "Unable to confirm order.",
+    'PD_CREATE_SHIPMENT_FAILED': "Unable create shipment."
 
 }
 
 PD_SUCCESS = {
-    'PD_INIT_SUCCESSFUL': {"message":"Project successfully initialized."},
-    'PD_ADDED_TO_CART_SUCCESS': {"message":"Product(s) successfully added."},
-    'PD_REMOVE_FROM_CART_SUCCESS': {"message":"Product(s) successfully removed."},
-    'PD_ORDER_CONFORM_SUCCESS': {"message":"Order is confirmed."}
+    'PD_INIT_SUCCESSFUL': "Project successfully initialized.",
+    'PD_ADDED_TO_CART_SUCCESS': "Product(s) successfully added.",
+    'PD_REMOVE_FROM_CART_SUCCESS': "Product(s) successfully removed.",
+    'PD_ORDER_CONFORM_SUCCESS': "Order is confirmed."
 }
 
 PD_MISCELLANEOUS = {
-    'PD_USER_EXIST': {"message":"User already exist."},
-    'PD_INVALID_USER': {"message":"Invalid email address or password."}
+    'PD_USER_EXIST': "User already exist.",
+    'PD_INVALID_USER': "Invalid email address or password."
 }
 
 

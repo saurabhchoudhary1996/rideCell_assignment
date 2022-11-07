@@ -1,11 +1,11 @@
 SP_ERROR = {
-    'SP_INIT_FAILED': {"message":"Unable initialize project."},
-    'SP_CREATE_SHIPMENT_FAILED': {"message":"Unable fetch shipment status."},
-    'SP_SHIPMENT_STATUS_FAILED': {"message":"Unable create shipment."}
+    'SP_INIT_FAILED': "Unable initialize project.",
+    'SP_CREATE_SHIPMENT_FAILED': "Unable fetch shipment status.",
+    'SP_SHIPMENT_STATUS_FAILED': "Unable create shipment."
 }
 
 SP_SUCCESS = {
-    'SP_INIT_SUCCESSFUL': {"message":"Project successfully initialized."}
+    'SP_INIT_SUCCESSFUL': "Project successfully initialized."
     }
 
 SP_MISCELLANEOUS = {

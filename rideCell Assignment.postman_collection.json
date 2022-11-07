@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "3ab413dc-66b7-4706-a614-56469c0b1798",
+		"name": "rideCell Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "saurabh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email_address",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-product-list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/get-product-list",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get-product-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "conform order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "aa7d9a82-4cc8-48b0-b76e-ca7eefed4eac",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:5000/confirm-order",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"confirm-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-chart item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "aa7d9a82-4cc8-48b0-b76e-ca7eefed4eac",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:5000/get-cart-item",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get-cart-item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add to cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "aa7d9a82-4cc8-48b0-b76e-ca7eefed4eac",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cart",
+							"value": "[{\"product_id\": \"fd9fcd46-d595-4f2e-9d1b-5976c8213286\", \"order_type\": \"e-book\"}, {\"product_id\": \"be578739-f78d-4f27-bad1-b3904b8be7ab\", \"order_type\": \"paper_book\"}, {\"product_id\": \"9da45465-998f-4c16-ab43-dca471bc1bb9\", \"order_type\": \"e-book\"}, {\"product_id\": \"c56f785d-1ee1-4a9b-8bc9-af818b98e301\", \"order_type\": \"paper_book\"}]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/add-to-cart",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"add-to-cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shipment status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "aa7d9a82-4cc8-48b0-b76e-ca7eefed4eac",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "9da45465-998f-4c16-ab43-dca471bc1bb9",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/get-shipment-status",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get-shipment-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "saurabh",
+							"type": "text"
+						},
+						{
+							"key": "email_address",
+							"value": "admin1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

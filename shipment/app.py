@@ -27,7 +27,7 @@ def init():
         SPException(e)
         result = SP_ERROR['SP_INIT_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/get-shipment-status', methods = ["POST"])
@@ -45,7 +45,7 @@ def get_shipment_status():
         SPException(e)
         result = SP_ERROR['SP_SHIPMENT_STATUS_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/create-shipment', methods = ["POST"])
@@ -65,7 +65,7 @@ def create_shipment():
         SPException(e)
         result = SP_ERROR['SP_CREATE_SHIPMENT_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 if __name__ == '__main__':
    app.run(

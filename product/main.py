@@ -26,7 +26,7 @@ def init():
         PDException(e)
         result = PD_ERROR['PD_INIT_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/signup', methods = ["POST"])
@@ -50,7 +50,7 @@ def signup():
         PDException(e)
         result = PD_ERROR['PD_SIGNUP_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/login', methods = ["POST"])
@@ -73,7 +73,7 @@ def login():
         PDException(e)
         result = PD_ERROR['PD_SIGNUP_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/get-product-list', methods = ["POST"])
@@ -89,7 +89,7 @@ def get_product_list():
         PDException(e)
         result = PD_ERROR['PD_PRODUCT_LIST_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/add-to-cart', methods = ["POST"])
@@ -109,13 +109,13 @@ def add_to_cart():
         PDException(e)
         result = PD_ERROR['PD_ADDED_TO_CART_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 @app.route('/get-cart-item', methods = ["POST"])
 def get_cart_item():
    try:
       userID = request.headers['user_id']
-      result = PDProduct().getCartProductList(userID)
+      result = jsonify(PDProduct().getCartProductList(userID))
       response = HttpStatus.ok_200.value
    except CustomException as ce:
         PDException(ce.getErrMsg())
@@ -125,7 +125,7 @@ def get_cart_item():
         PDException(e)
         result = PD_ERROR['PD_FETCH_CART_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 @app.route('/remove-from-cart', methods = ["POST"])
 def remove_from_cart():
@@ -144,7 +144,7 @@ def remove_from_cart():
         PDException(e)
         result = PD_ERROR['PD_REMOVED_FROM_CART_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 @app.route('/get-shipment-status', methods = ["POST"])
 def get_shipment_status():
@@ -165,7 +165,7 @@ def get_shipment_status():
         PDException(e)
         result = PD_ERROR['PD_SHIPMENT_STATUS_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 @app.route('/confirm-order', methods = ["POST"])
@@ -186,7 +186,7 @@ def conform_order():
         PDException(e)
         result = PD_ERROR['PD_REMOVED_FROM_CART_FAILED']
         response = HttpStatus.internal_server_error_500.value
-   return jsonify(result), response
+   return result, response
 
 
 

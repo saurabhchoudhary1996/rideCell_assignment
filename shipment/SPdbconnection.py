@@ -2,10 +2,9 @@ import psycopg2
 import psycopg2.extras
 import sys
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-from datetime import datetime
 
 #Modules
-from SPSetting import *
+
 from SPLogging import *
 import SPenv
 
@@ -80,8 +79,7 @@ class Database:
                     shipment_id UUID PRIMARY KEY DEFAULT gen_random_UUID(),
                     product_id VARCHAR(100) NOT NULL,
 					user_id UUID NOT NULL,
-					order_id UUID NOT NULL,
-					shipment_status VARCHAR(100) NOT NULL
+					order_id UUID NOT NULL
 					);
                 ''' 
             self._cur.execute(sql)
@@ -108,20 +106,13 @@ class Database:
             raise
 
     @addlog
-    def add_to_shipment(self, productList, orderID, userID):
+    def add_to_shipment(self, productID, shipmentID, orderID, userID):
         try:
-            shipmentIDList = []
-            for productID in productList:
-                SPDebug(f'productID/productID - {productID}, {userID}, {orderID}, {DISPATCHED}')
-                sql = '''
-                        INSERT INTO shipment(product_id, user_id, order_id, shipment_status) VALUES(%s, %s, %s, %s) ON CONFLICT DO NOTHING RETURNING shipment_id;
-                    '''
-                self._cur.execute(sql,[productID, userID, orderID, DISPATCHED])
-                shipmentID = self._cur.fetchone()
-                if shipmentID:
-                    shipmentIDList.append({'product_id':productID,'shipment_id':shipmentID[0]})
+            sql = '''
+                    INSERT INTO shipment(shipment_id, product_id, user_id, order_id) VALUES(%s, %s, %s, %s);
+                '''
+            self._cur.execute(sql,[shipmentID, productID, userID, orderID])
             SPQueryCompleted(sys._getframe().f_code.co_name)
-            return shipmentIDList
         except Exception as e:
             SPException(e)
             raise
@@ -164,18 +155,3 @@ class Database:
         except Exception as e:
             SPException(e)
             raise
-
-    @addlog
-    def get_shipment_status(self, shipment_id):
-        try:
-            sql = '''
-					SELECT shipment_status FROM shipment WHERE shipment_id = %s;
-				  '''
-            self._cur.execute(sql, [shipment_id])
-            info = self._cur.fetchone()
-            SPQueryCompleted(sys._getframe().f_code.co_name)
-            return info
-        except Exception as e:
-            SPException(e)
-            raise
-
