@@ -1,6 +1,5 @@
 # rideCell_assignment
-We are using postgresql for database.
-We are using Flask for this application.
+We are using Flask for this application and postgresql for database.
 
 # Install required libraries
 Use requirement.txt to install required modules.
